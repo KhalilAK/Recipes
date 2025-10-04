@@ -1,6 +1,6 @@
 const button = document.querySelector(".submit-btn");
 const foodInput = document.querySelector(".food-input");
-const serverName = "https://recipes-hdm5.onrender.com"
+const serverName = ""
 
 const mainContainer = document.querySelector(".container");
 
