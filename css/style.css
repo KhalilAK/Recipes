@@ -9,6 +9,9 @@
     --text-secondary: #666666;
     --recipe-box-back: rgb(57, 131, 106);
 }
+html{
+    background-color: var(--background);
+}
 
 body{
     margin: 0;
