@@ -31,6 +31,7 @@ This app is designed to deploy on **Vercel**:
 3. Add your `API_NINJAS_KEY` environment variable in Vercel settings
 4. Deploy!
 
+Check it out here (right-click → Open in new tab): [Live Demo](https://recipes-fvi9b650v-khalilaks-projects.vercel.app/)
 
 
 ## API Routes
