@@ -1,6 +1,6 @@
 const button = document.querySelector(".submit-btn");
 const foodInput = document.querySelector(".food-input");
-const serverName = "https://recipes-fvi9b650v-khalilaks-projects.vercel.app/"
+const serverName = "/api"
 
 const mainContainer = document.querySelector(".container");
 
