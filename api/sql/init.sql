@@ -1,0 +1,15 @@
+CREATE DATABASE IF NOT EXISTS recipe;
+USE recipe;
+
+CREATE TABLE IF NOT EXISTS recipe_item(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title UNIQUE VARCHAR(255) NOT NULL,
+    instructions TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS ingredient(
+    ingredient_id INT AUTO_INCREMENT PRIMARY KEY,
+    recipe_id INT NOT NULL REFERENCES recipe_item(id) ON DELETE CASCADE,
+    name VARCHAR(255) NOT NULL,
+    quantity VARCHAR(50)
+);
