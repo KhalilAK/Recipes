@@ -21,38 +21,6 @@ A full-stack recipe management app with a frontend for browsing and adding recip
 - **Backend:** Node.js + Sequelize ORM (for storing local recipe metadata)
 - **External API:** API Ninjas Recipe API
 
-## Setup
-
-### Prerequisites
-
-- Node.js (v14 or higher)
-- API Ninjas API Key ([Get one here](https://api-ninjas.com/))
-
-### Installation
-
-1. Clone the repository:
-```bash
-git clone https://github.com/yourusername/recipe-app.git
-cd recipe-app
-```
-
-2. Install dependencies:
-```bash
-npm install
-```
-
-3. Create a `.env` file in the root directory:
-```env
-API_NINJAS_KEY=your_api_key_here
-```
-
-4. Run the development server:
-```bash
-npm start
-```
-
-5. Open your browser and navigate to `http://localhost:3000`
-
 ## Deployment
 
 This app is deployed on **Render**:
