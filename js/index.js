@@ -1,6 +1,6 @@
 const button = document.querySelector(".submit-btn");
 const foodInput = document.querySelector(".food-input");
-const serverName = "http://192.168.1.152:2002"
+const serverName = "/api"
 
 const mainContainer = document.querySelector(".container");
 
