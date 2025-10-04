@@ -1,0 +1,8 @@
+{
+  "name": "recipe-app",
+  "private": true,
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "concurrently \"npm run dev --prefix frontend\" \"npm run dev --prefix backend\""
+  }
+}
