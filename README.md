@@ -31,6 +31,8 @@ This app is designed to deploy on **Vercel**:
 3. Add your `API_NINJAS_KEY` environment variable in Vercel settings
 4. Deploy!
 
+
+
 ## API Routes
 
 - `GET /api/get-recipes` - Fetch all stored recipes
