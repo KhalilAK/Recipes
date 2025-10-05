@@ -1,6 +1,12 @@
 const button = document.querySelector(".submit-btn");
 const foodInput = document.querySelector(".food-input");
-const serverName = ""
+const serverName = "";
+const recipeOverlay = document.querySelector(".recipe-overlay");
+const recipeOverlayDetails = document.querySelector(".recipe-overlay-details");
+const recipeOverlayIngredients = document.querySelector(".recipe-overlay-ingredients");
+const exitOverlayBtn = recipeOverlayDetails.children[0];
+const recipeTitle = document.querySelector(".recipe-title");
+const recipeInstructions = document.querySelector(".recipe-instructions");
 
 const mainContainer = document.querySelector(".container");
 
@@ -23,8 +29,16 @@ async function getRecipes(){
                 mainContainer.innerHTML='';
                 addRecipeUI(data.recipes);
             }
+            console.log("Showing recipe");
+
+
             let currentRecipe = showRecipe(data.recipes, currentTitle);
             console.log(currentRecipe);
+            createIngredientsUI(currentRecipe.ingredients);
+            const sentences = currentRecipe.instructions.split(".").map(s => s.trim()).filter(s => s.length > 0);
+            recipeInstructions.innerHTML = sentences.join('.<br>');
+            console.log
+            recipeTitle.textContent = currentRecipe.title;
         }
     }
     catch(err){
@@ -40,6 +54,21 @@ function addRecipeUI(recipes){
     });
 }
 
+
+function createIngredientsUI(ingredients){
+    while(recipeOverlayIngredients.children.length > 1){
+        recipeOverlayIngredients.removeChild(recipeOverlayIngredients.lastChild);
+    }
+    ingredients.forEach(ingredient => {
+        if(ingredient.name === "INGREDIENTS:"){
+            return;
+        }
+        let ingredientUI = document.createElement("p");
+        ingredientUI.classList = "ingredient-text";
+        ingredientUI.textContent = ingredient.name;
+        recipeOverlayIngredients.appendChild(ingredientUI);
+    })
+}
 
 function createRecipeBox(title, ingredientCount){
     /*
@@ -57,8 +86,10 @@ function createRecipeBox(title, ingredientCount){
     */
     let recipeBoxContainer = document.createElement("div");
     recipeBoxContainer.addEventListener('click', (e) => {
+        recipeOverlay.style.display = 'flex';
         showDetails=true;
         currentTitle = title;
+        console.log("Num");
         getRecipes();
     })
     recipeBoxContainer.classList = "recipe-box";
@@ -135,15 +166,20 @@ async function sendRecipe(){
         });
         const data = await response.json();
         if(response.ok){
-            await getRecipes();
+            getRecipes();
         }
         else{
             console.log(data.error);
+            alert(data.error);
         }
     }
     catch(err){
         console.error(err);
     }
+}
+
+function closeRecipeOverlay(){
+    recipeOverlay.style.display = 'none';
 }
 
 getRecipes();
@@ -153,4 +189,11 @@ button.addEventListener('click', (e) => {
     sendRecipe();
 })
 
-console.log(button);
+
+exitOverlayBtn.addEventListener('click', closeRecipeOverlay);
+recipeOverlay.addEventListener('click', closeRecipeOverlay);
+
+
+recipeOverlayDetails.addEventListener('click', (e) => {
+    e.stopPropagation();
+});

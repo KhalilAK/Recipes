@@ -155,3 +155,65 @@ RECIPE BOX
 .box-link{
     font-weight: bold;
 }
+
+
+/*###########
+
+RECIPE OVERLAY
+
+###########*/
+
+
+.recipe-overlay{
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.recipe-overlay-details {
+  height: 80vh;
+  width: 75%;
+  background-color: var(--primary);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  border-radius: 6px;
+  padding: 20px;
+  box-sizing: border-box;
+  box-shadow: 2px 2px 2px black;
+  position: relative;
+  z-index: 20;
+  overflow-y: auto;
+}
+
+.recipe-overlay-title{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.recipe-title{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+
+.exit-overlay{
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-50%, 50%);
+    border: none;
+    background-color: black;
+    color: var(--primary);
+    box-shadow: 2px 2px 3px black;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px
+}
