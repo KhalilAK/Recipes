@@ -74,7 +74,7 @@ router.post("/add-recipe", async(req, res) => {
     }
     catch(err){
         console.error(err);
-        res.status(500).json({error: "Couldn't connect"});
+        res.status(500).json({error: "Recipe in system already"});
     }
 });
 
